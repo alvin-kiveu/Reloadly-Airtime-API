@@ -1,9 +1,13 @@
 <?php
 include "accesstoken.php";
+$query = array(
+  "size" => "10",
+  "page" => "1"
+);
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://topups.reloadly.com/countries/PK',
+  CURLOPT_URL => 'https://topups-sandbox.reloadly.com/operators/commissions?' . http_build_query($query),
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -12,8 +16,8 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
   CURLOPT_HTTPHEADER => array(
-    'Accept: application/com.reloadly.topups-v1+json',
     'Authorization: Bearer ' . $access_token,
+    'Accept: application/com.reloadly.topups-v1+json'
   ),
 ));
 
