@@ -1,7 +1,7 @@
 <?php
 include "accesstoken.php";
 $query = array(
-  "size" => "10",
+  "size" => "50",
   "page" => "1"
 );
 $curl = curl_init();
@@ -21,8 +21,8 @@ curl_setopt_array($curl, array(
   ),
 ));
 
-$response = curl_exec($curl);
+echo $response = curl_exec($curl);
 
 curl_close($curl);
 //echo $response;
-echo  var_dump(json_decode($response));
+// echo  var_dump(json_decode($response));
